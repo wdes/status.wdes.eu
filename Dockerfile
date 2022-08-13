@@ -5,10 +5,12 @@ WORKDIR /usr/src/vigil
 COPY --from=valeriansaliou/vigil:v1.24.3 /usr/local/bin/vigil /usr/local/bin/vigil
 COPY --from=valeriansaliou/vigil:v1.24.3 /usr/src/vigil/res/assets/ /usr/src/vigil/res/assets/
 COPY vigil.cfg /etc/vigil.cfg
+COPY docker-entrypoint.sh docker-entrypoint.sh
+
+ENV PORT=8080
 
 # Add ca-certificates cert bundle
-RUN apk add --no-cache ca-certificates && vigil --version
+RUN apk add --no-cache ca-certificates gettext && \
+    vigil --version
 
-CMD [ "vigil", "-c", "/etc/vigil.cfg" ]
-
-EXPOSE 8080
+CMD [ "docker-entrypoint.sh" ]
