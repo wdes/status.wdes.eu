@@ -1,7 +1,7 @@
 #!/bin/sh -eux
 
-envsubst < vigil.cfg > vigil.cfg
+envsubst < /etc/vigil.cfg > /etc/vigil.cfg
 
-cat vigil.cfg
+cat /etc/vigil.cfg
 
 vigil -c /etc/vigil.cfg
