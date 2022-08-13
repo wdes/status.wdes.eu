@@ -1,3 +1,8 @@
 build:
   docker:
     web: Dockerfile
+
+run:
+  web:
+    command: vigil -c /etc/vigil.cfg
+    image: web
