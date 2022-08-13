@@ -11,4 +11,4 @@ RUN apk add --no-cache ca-certificates && vigil --version
 
 CMD [ "vigil", "-c", "/etc/vigil.cfg" ]
 
-EXPOSE 80
+EXPOSE 8080
