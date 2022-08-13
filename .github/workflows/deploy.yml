@@ -25,6 +25,6 @@ jobs:
       - name: Build the container
         run: docker build ./ -t status
       - name: Push to Heroku
-        run: heroku container:push status
+        run: heroku container:push --app ${{ secrets.HEROKU_APP_NAME }} status
       - name: Release the image to Heroku
-        run: heroku container:release web
+        run: heroku container:release --app ${{ secrets.HEROKU_APP_NAME }} web
