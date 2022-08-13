@@ -4,5 +4,8 @@ build:
 
 run:
   web:
-    command: vigil -c /etc/vigil.cfg
+    command:
+      - vigil --version
+      - ls -lah /etc/vigil.cfg
+      - vigil -c /etc/vigil.cfg
     image: web
