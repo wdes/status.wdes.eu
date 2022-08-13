@@ -1,0 +1,23 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_to_heroku:
+    environment:
+      name: "Heroku"
+      url: https://williamdes.github.io/mariadb-mysql-kbs/
+    name: Deploy to Heroku
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # akhileshns/heroku-deploy@v3.12.12
+      - uses: akhileshns/heroku-deploy@79ef2ae4ff9b897010907016b268fd0f88561820
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          usedocker: true
