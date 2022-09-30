@@ -7,4 +7,5 @@ echo "Replacing ENVs"
 envsubst < /etc/vigil.cfg > /etc/vigil.cfg
 
 echo "Running vigil"
+cat /etc/vigil.cfg
 vigil -c /etc/vigil.cfg
