@@ -11,6 +11,7 @@ ENV PORT=8080
 
 # Add ca-certificates cert bundle
 RUN apk add --no-cache ca-certificates gettext && \
+    ls -lah /etc/vigil.cfg && \
     vigil --version
 
 CMD [ "/docker-entrypoint.sh" ]
