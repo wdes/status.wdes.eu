@@ -1,9 +1,5 @@
-FROM alpine:3.17
+FROM valeriansaliou/vigil:v1.25.1
 
-WORKDIR /usr/src/vigil
-
-COPY --from=valeriansaliou/vigil:v1.24.3 /usr/local/bin/vigil /usr/local/bin/vigil
-COPY --from=valeriansaliou/vigil:v1.24.3 /usr/src/vigil/res/assets/ /usr/src/vigil/res/assets/
 COPY vigil.cfg /etc/vigil.cfg
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
