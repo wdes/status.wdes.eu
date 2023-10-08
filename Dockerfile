@@ -1,12 +1,11 @@
-FROM valeriansaliou/vigil:v1.25.1
+FROM valeriansaliou/vigil:v1.26.3
 
 COPY vigil.cfg /etc/vigil.cfg
-COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ENV PORT=8080
 
 # Add ca-certificates cert bundle
-RUN apk add --no-cache ca-certificates gettext && \
+RUN apk add --no-cache ca-certificates && \
     vigil --version
 
-CMD [ "/docker-entrypoint.sh" ]
+CMD [ "vigil", "-c", "/etc/vigil.cfg" ]
